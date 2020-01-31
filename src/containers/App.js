@@ -29,6 +29,20 @@ class App extends Component {
     console.log('[App.js] componentDidMount');
   }
 
+  // This can be used for performance improvements
+  shouldComponentUpdate(nextPros, nextState) {
+    console.log('[App.js] shouldComponentUpdate');
+    // return false means we are preventing the updated. So toggling of button will not work
+    // return false;
+    
+    return true;
+    
+  }
+
+  componentDidUpdate() {
+    console.log('[App.js] componentDidUpdate');
+  }
+
   nameChangedHandler = (event, id) => {
     const personIndex = this.state.persons.findIndex(p => {
       return p.id === id;
